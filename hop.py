@@ -52,3 +52,32 @@
 # answer = sum_of_range(1, 74)
 # print(answer)
 
+# Task 6:
+days_in_months = [
+    31, 28, 31, 30,
+    31, 30, 31, 31,
+    30, 31, 30, 31]
+months = [
+    "January", "February", "March", "April",
+    "May", "June", "July", "August",
+    "September", "October", "November", "December"]
+weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+sts = [1, 21, 31]
+nds = [2, 22]
+rds = [3, 23]
+current_day = 0
+
+for month, n_days in zip(months, days_in_months):
+    for day in range(1, n_days + 1):
+        if day in sts:
+            day_addition = "st"
+        elif day in nds:
+            day_addition = "nd"
+        elif day in rds:
+            day_addition = "rd"
+        else:
+            day_addition = "th"
+        print(f"{weekdays[current_day]}, {month} {day}{day_addition}")
+        current_day = (current_day + 1) % len(weekdays)
+
+# # learn how to zip and module interaction
